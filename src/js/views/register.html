@@ -1,0 +1,22 @@
+<div class="oj-hybrid-padding">
+    <br/><br/>
+    <div class="oj-flex">
+        <div class="oj-flex-item" style="text-align: center; max-width: 100%; min-height: 170px; border: 3px double #02629f; border-radius: 10px; padding: 20px 5px 0px 5px;">
+            <oj-validation-group id="registrationValidationGroup">
+                <oj-form-layout max-columns="2" id="registrationform" label-edge="start">
+                    <oj-input-text label-hint="{{labels.firstname}}" validators="[[textValidators]]" id="firstname" placeholder="{{placeholders.firstname}}" value="{{request.firstname}}" required></oj-input-text>
+                    <oj-input-text label-hint="{{labels.lastname}}" validators="[[textValidators]]" id="lastname" placeholder="{{placeholders.lastname}}" value="{{request.lastname}}" required></oj-input-text>
+                    <oj-input-text label-hint="{{labels.email}}" validators="[[emailValidators]]" id="email" placeholder="{{placeholders.email}}" value="{{request.email}}" required></oj-input-text>
+                    <oj-input-text label-hint="{{labels.phone}}" validators="[[phoneValidators]]" help.instruction="{{helpInstructions.phone}}" id="phone" placeholder="{{placeholders.phone}}" value="{{request.phone}}" required></oj-input-text>
+                    <oj-input-text label-hint="{{labels.username}}" validators="[[usernameValidators]]" help.instruction="{{helpInstructions.username}}" id="username" placeholder="{{placeholders.username}}" value="{{request.username}}" required></oj-input-text>
+                    <oj-input-password label-hint="{{labels.password}}" validators="[[passwordValidators]]" help.instruction="{{helpInstructions.password}}" id="password" placeholder="{{placeholders.password}}" value="{{request.password}}" required></oj-input-password>
+                    <oj-input-password label-hint="{{labels.confirmpassword}}" validators="[[confirmPasswordValidators]]" id="confirmpassword" placeholder="{{placeholders.confirmpassword}}" value="{{request.confirmpassword}}" required></oj-input-password>
+                </oj-form-layout>
+            </oj-validation-group>
+            <div style="float: right; min-height: 30px; bottom: 2px">
+                <oj-button on-oj-action="[[register]]"><span>Sign Up</span></oj-button>
+                <oj-button on-oj-action="[[navLogin]]"><span>Have an account? Sign In</span></oj-button>
+            </div>
+        </div>
+    </div>
+</div>

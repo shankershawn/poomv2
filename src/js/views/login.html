@@ -1,0 +1,37 @@
+<div class="oj-hybrid-padding">
+    <br/><br/>
+    <oj-bind-if test="[[showLoadingImage()]]">
+        <div class="oj-flex">
+            <div class="oj-flex-item"></div>
+            <div class="oj-flex-item" style="text-align: center; max-width: 80%; min-height: 170px;">
+                <img src="../../css/images/loader.svg"/>
+            </div>
+            <div class="oj-flex-item"></div>
+            </div>
+    </oj-bind-if>
+    <oj-bind-if test="[[!showLoadingImage()]]">
+        <div class="oj-flex">
+            <div class="oj-flex-item" style="margin: 10px; text-align: center; min-height: 170px; border: 3px double #02629f; border-radius: 10px; padding: 10px 5px 0px 5px;">
+                <oj-validation-group id="loginValidationGroup" style="text-align: center;">
+                    <oj-form-layout max-columns="1" id="loginform" label-edge="start">
+                        <oj-input-text label-hint="{{labels.username}}" id="username" placeholder="{{placeholders.username}}" value="{{username}}" required></oj-input-text>
+                        <br/>
+                        <oj-input-password id="password" label-hint="{{labels.password}}" placeholder="{{placeholders.password}}" value="{{password}}" required></oj-input-password>
+                    </oj-form-layout>
+                </oj-validation-group>
+                <br/>
+                <br/>
+                <div style="position: relative; min-height: 30px; bottom: 2px">
+                    <span style="position: relative; margin-right: 5px; float: left; bottom: -15px;"><a style="cursor: pointer;" on-click="[[navRegister]]">Sign Up</a></span>
+                    <span style="position: relative; margin-right: 5px; float: left; bottom: -15px;"><a style="cursor: pointer;" on-click="[[forgotPassword]]">Forgot Password?</a></span>
+                    <oj-button style="float: right;" on-oj-action="[[validateCredentials]]"><span>Sign In</span></oj-button>
+                </div>
+            </div>
+            <div class="oj-flex-item" style="margin: 10px; text-align: center; min-height: 170px; border: 3px double #02629f; border-radius: 10px; padding: 10px 5px 0px 5px;">
+                <oj-button style="float: center;position: relative; top: 37%;" on-oj-action="[[proceedGoogleSSO]]"><img slot="startIcon" height="30px" width="30px" src="../../css/images/btn_google_dark_normal_ios.png"> Sign in with Google</oj-button>
+                
+            </div>
+        </div>
+    </oj-bind-if>
+    
+</div>

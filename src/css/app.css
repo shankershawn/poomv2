@@ -1,0 +1,30 @@
+/*
+    Document   : override
+    Created on : <date>
+    Author     : <author>
+    Description:
+        This is where any of your application specific styles should be included
+*/
+
+.sendOffScreen {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+#announce {
+    background-color: magenta;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    top: 0px;
+    max-height: 40px;
+    height: 40px;
+    text-align: center;
+    overflow: hidden;
+    visibility: hidden;
+    color: white;
+}
