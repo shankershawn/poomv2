@@ -64,7 +64,19 @@ function($, ko, routerUtil, cryptojs, config, accUtils){
         };
 
         self.proceedGoogleSSO = (event) => {
-            window.open(JSON.parse(config).GAPI_URL, "_self");
+            var width = 500;
+            var height = 600;
+            var top = (window.innerHeight - height) / 2;
+            var left = (window.innerWidth - width) / 2;
+            window.open(JSON.parse(config).GAPI_URL, "", "top="+top+",left="+left+",height=600,width=500,toolbar=no,directories=no,status=no, linemenubar=no,scrollbars=no,resizable=no,modal=yes");
+            var timer = setInterval(() => {
+                if(!!window.localStorage.getItem('fvgf') && !!window.localStorage.getItem('tfdv')){
+                    clearInterval(timer);
+                    self.setTopMenu();
+                    routerUtil.toggleProfileMenuDisplay(true);
+                    //accUtils.announce(data.messageDetail, 'assertive');
+                }
+            }, 250);
         };
 
         self.logout = () => {

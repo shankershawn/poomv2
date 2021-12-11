@@ -1,5 +1,5 @@
 define(['../appController','ojs/ojanimation'],
-function(app, ){
+function(app){
     function processRoute(){
         var self = this;
         
@@ -42,10 +42,10 @@ function(app, ){
           self.navigate([
               { path: 'login', detail: { label: 'Login', iconClass: 'oj-ux-ico-login', isDefault: true } }
           ]);
-      }
+        }
 
         self.navigate = (navData) => {
-          oj.AnimationUtils['fadeOut'](document.getElementById('top-menu'), {timingFunction: 'ease' })
+          oj.AnimationUtils['slideOut'](document.getElementById('top-menu'), {timingFunction: 'ease', direction: 'right', duration: '1000ms' })
             .then(() => {
               document.getElementById('top-menu').style.visibility = 'hidden';
               app.router.go({path: navData.filter(e => undefined != e.detail && e.detail.isDefault == true)[0].path})
@@ -57,7 +57,7 @@ function(app, ){
                   return;
                 })
                 .then(() => {
-                  oj.AnimationUtils['fadeIn'](document.getElementById('top-menu'), {timingFunction: 'ease', delay: '500ms' });
+                  oj.AnimationUtils['fadeIn'](document.getElementById('top-menu'), {timingFunction: 'ease', delay: '300ms', direction: 'left' });
                 })
                 .then(() => {
                   document.getElementById('top-menu').style.visibility = 'visible';

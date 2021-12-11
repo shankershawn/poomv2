@@ -24,11 +24,12 @@ define(['knockout', 'ojs/ojknockouttemplateutils', 'ojs/ojresponsiveutils', 'ojs
       this.KnockoutTemplateUtils = KnockoutTemplateUtils;
 
       self.setGToken = () => {
-          var g_token = new URL(window.location.toString().replace('/#','/?')).searchParams.get("access_token");
-          if(!!g_token){
-              window.localStorage.setItem("fvgf", g_token);
-              window.localStorage.setItem("tfdv","g");
-          }
+        var g_token = new URL(window.location.toString().replace('/#','/?')).searchParams.get("access_token");
+        if(!!g_token){
+            window.localStorage.setItem("fvgf", g_token);
+            window.localStorage.setItem("tfdv","g");
+            window.close();
+        }
       }
     
       self.setGToken();
@@ -96,7 +97,7 @@ define(['knockout', 'ojs/ojknockouttemplateutils', 'ojs/ojresponsiveutils', 'ojs
           self.isShowProfileMenu(true);
         })
         .catch(() => {
-            self.isShowProfileMenu(false);
+          self.isShowProfileMenu(false);
         });
       });
 
@@ -138,13 +139,13 @@ define(['knockout', 'ojs/ojknockouttemplateutils', 'ojs/ojresponsiveutils', 'ojs
       self.userMenuAction = async function(event){
           switch(event.detail.originalEvent.target.parentElement.id){
               case "out":
-                  var token = window.localStorage.getItem('fvgf');
+                  /*var token = window.localStorage.getItem('fvgf');
                   var auth_type = window.localStorage.getItem('tfdv');
                   window.localStorage.removeItem('fvgf');
-                  window.localStorage.removeItem('tfdv');
+                  window.localStorage.removeItem('tfdv');*/
                   var login = await require('./viewModels/login');
-                  window.localStorage.setItem('fvgf', token);
-                  window.localStorage.setItem('tfdv', auth_type);
+                  /*window.localStorage.setItem('fvgf', token);
+                  window.localStorage.setItem('tfdv', auth_type);*/
                   await login.logout();
                   window.localStorage.removeItem('fvgf');
                   window.localStorage.removeItem('tfdv');

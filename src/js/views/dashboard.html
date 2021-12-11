@@ -3,21 +3,55 @@
  Licensed under The Universal Permissive License (UPL), Version 1.0
  as shown at https://oss.oracle.com/licenses/upl/
  -->
-<div class="oj-hybrid-padding">
+<div class="oj-hybrid-padding" style="text-align: center;">
   <!--<h1>Dashboard Content Area</h1>
   <div>
       To change the content of this section, you will make edits to the dashboard.html file located in the /js/views folder.
   </div>-->
+  <br/><br/>
   <div class="oj-flex">
-    <div class="oj-flex-item oj-md-6" style="background-color: tomato;">
-      <p>Hdpsidnfskndelfknslkenn</p>
-      <oj-chart
-        id="weight-chart"
-        type="line"
-        animation-on-data-change="auto"
-        animation-on-display="auto"
-      ></oj-chart>
+    <div class="oj-flex-item oj-md-3 oj-sm-only-hide"></div>
+    <div class="oj-flex-item oj-md-6 oj-sm-12 oj-sm-justify-content-center" style="font-size: 2.2em; font-family: 'Courier New', Courier, monospace;">
+      <span data-bind="text: parentHoodQuote"></span> 
     </div>
-
+    <div class="oj-flex-item oj-md-3 oj-sm-only-hide"></div>
   </div>
+  <div id="childOptions" class="oj-flex" style="padding-top: 40px;" data-bind="ifnot: isShowAddChildForm">
+    <div class="oj-flex-item oj-sm-12" style="font-size: 2em; padding-bottom: 40px;">
+      <span data-bind="text: childBlessedQuote"></span>
+    </div>
+    <br/>
+    <div class="oj-flex-item oj-md-3 oj-sm-only-hide"></div>
+    <div class="oj-flex-item oj-md-6 oj-sm-12 oj-sm-justify-content-center" style="font-size: 2em; top: 100px">
+      <span id="daughter" class="oj-icon-circle oj-icon-circle-xxl" style="float: left; overflow: hidden; cursor: pointer;" data-bind="event: {click: initiateAddChild}">
+        <span class="oj-icon-circle-inner">
+          <img src="../../css/images/mybaby.jpg" width="200px" height="200px" style="margin: 70px 0px 0px 60px;"/>
+        </span>
+      </span>
+      <span id="son" class="oj-icon-circle oj-icon-circle-xxl" style="float: right; overflow: hidden; cursor: pointer;" data-bind="event: {click: initiateAddChild}">
+        <span class="oj-icon-circle-inner">
+          <img src="../../css/images/mybaby.jpg" width="200px" height="200px" style="margin: -70px 100px 0px 0px;"/>
+        </span>
+      </span>
+    </div>
+    <div class="oj-flex-item oj-md-3 oj-sm-only-hide"></div>
+  </div>
+  <div id="addChildFields" class="oj-flex" style="padding-top: 10px;" data-bind="if: isShowAddChildForm">
+    <div class="oj-flex-item oj-md-3 oj-sm-only-hide"></div>
+    <div class="oj-flex-item oj-md-6 oj-sm-12 oj-sm-justify-content-center" style="font-size: 2em; top: 100px">
+      <oj-validation-group id="addChildValidationGroup">
+        <oj-form-layout max-columns="1" label-edge="start">
+          <oj-input-text id="firstname" required clear-icon="conditional" validators="[[textValidators]]" label-hint="[[labels.firstname]]" placeholder="[[placeholders.firstname]]" value="{{request.firstname}}"></oj-input-text>
+          <oj-input-text id="lastname" clear-icon="conditional" validators="[[textValidators]]" label-hint="[[labels.lastname]]" placeholder="[[placeholders.lastname]]" value="{{request.lastname}}"></oj-input-text>
+          <oj-input-text id="nickname" clear-icon="conditional" validators="[[textValidators]]" label-hint="[[labels.nickname]]" placeholder="[[placeholders.nickname]]" value="{{request.nickname}}"></oj-input-text>
+          <oj-input-date id="dob" required clear-icon="conditional" label-hint="[[labels.dob]]" placeholder="[[placeholders.dob]]" value="{{request.dob}}"></oj-input-text>
+        </oj-form-layout>
+      </oj-validation-group>
+      <oj-button on-oj-action="[[showChildOptions]]"><span>Back</span></oj-button>
+      <oj-button on-oj-action="[[addChild]]"><span>Save</span></oj-button>
+    </div>
+    <div class="oj-flex-item oj-md-3 oj-sm-only-hide"></div>
+  </div>
+  
+  
 </div>
